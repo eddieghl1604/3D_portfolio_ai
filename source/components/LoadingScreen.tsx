@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
 interface LoadingScreenProps {
   onComplete: () => void;
 }
@@ -12,7 +11,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   useEffect(() => {
     const statuses = [
       'Initializing...',
-      'Connecting to blockchain...',
+      'Connecting to portfolio...',
       'Decrypting identity...',
       'Loading neural networks...',
       'Synchronizing protocols...',
@@ -31,7 +30,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         return next;
       });
 
-      if (currentIndex < statuses.length - 1 && progress > (currentIndex + 1) * 16) {
+      if (currentIndex < statuses.length - 1 && progress > (currentIndex + 1) * 15) {
         currentIndex++;
         setStatus(statuses[currentIndex]);
       }
@@ -49,14 +48,16 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       >
         <div className="w-full max-w-md px-8">
           <div className="text-center mb-8">
+            <div style={{ fontSize: '50px' }}>
             <motion.h1
-              className="text-4xl font-bold text-gradient-cyber mb-2"
+              className="text-7xl font-bold text-gradient-cyber mb-2"
               animate={{ opacity: [1, 0.5, 1] }}
               transition={{ repeat: Infinity, duration: 2 }}
             >
-              ₿LOCK
+              EDDIE GAN
             </motion.h1>
-            <p className="text-primary text-sm font-mono">{status}</p>
+            <p className="text-primary text-xl font-mono">{status}</p>
+          </div>
           </div>
 
           <div className="relative h-2 bg-muted rounded-full overflow-hidden">
@@ -75,7 +76,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           </div>
 
           <div className="mt-4 text-center">
-            <span className="text-muted-foreground text-sm font-mono">
+            <span className="text-muted-foreground text-2xl font-mono">
               {Math.floor(progress)}%
             </span>
           </div>
