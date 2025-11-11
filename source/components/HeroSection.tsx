@@ -86,7 +86,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Spline 3D Model */}
-          <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-full lg:min-h-[500px] order-1 lg:order-2 -mb-4 sm:mb-0">
+          <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-full lg:min-h-[500px] order-1 lg:order-2 mt-8 sm:mt-12 lg:mt-0 mb-4 sm:mb-0">
             <iframe
               src='/components/3d_cube.html'
               frameBorder='0'
@@ -94,6 +94,7 @@ export default function HeroSection() {
               height='100%'
               title="3D Model"
               className="rounded-lg lg:rounded-none"
+              style={{ minHeight: '400px' }}
             />
           </div>
         </div>

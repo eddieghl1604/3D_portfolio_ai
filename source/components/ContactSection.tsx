@@ -291,7 +291,7 @@ export default function ContactSection() {
 
           {/* Right column */}
           <div className="space-y-6 sm:space-y-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <Card className="hologram-panel matrix-effect animate-fade-in min-h-[400px] sm:min-h-[500px]">
+            <Card className="hologram-panel matrix-effect animate-fade-in min-h-[500px] sm:min-h-[600px] md:min-h-[650px]">
               <CardHeader>
                 <CardTitle className="text-xl sm:text-2xl text-gradient-gold">Connect</CardTitle>
                 <CardDescription className="text-sm sm:text-base">Let's connect on social media</CardDescription>
@@ -315,9 +315,10 @@ export default function ContactSection() {
                       src='/components/3d_coin.html'
                       frameBorder='0'
                       width='100%'
-                      height='300px'
+                      height='100%'
                       title="3D Model"
-                      className="rounded-xl shadow-xl sm:h-[350px]"
+                      className="rounded-xl shadow-xl h-[400px] sm:h-[450px] md:h-[500px]"
+                      style={{ minHeight: '400px' }}
                     />
                   </div>
                 </div>
