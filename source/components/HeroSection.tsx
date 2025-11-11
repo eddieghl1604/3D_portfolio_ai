@@ -88,7 +88,7 @@ export default function HeroSection() {
           {/* Right Spline 3D Model */}
           <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-full lg:min-h-[500px] order-1 lg:order-2 -mb-4 sm:mb-0">
             <iframe
-              src='source\components\3d_cube.html'
+              src='/components/3d_cube.html'
               frameBorder='0'
               width='100%'
               height='100%'

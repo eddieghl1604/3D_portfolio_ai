@@ -47,7 +47,7 @@ export default function Navigation() {
           <div className="flex items-center justify-between">
             <a href="#home" className="flex items-center text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gradient-cyber" onClick={(e) => handleNavClick(e, 'home')}>
               <img
-                src="/source/assets/xrypto.png"
+                src="/assets/xrypto.png"
                 alt="logo"
                 className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 mr-2 sm:mr-3 object-contain flex-shrink-0"
               />

@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="text-center sm:text-left">
             <div className="flex items-center justify-center sm:justify-start mb-3 sm:mb-4">
               <img
-                src="/source/assets/xrypto.png"
+                src="/assets/xrypto.png"
                 alt="xrypto logo"
                 className="h-8 w-8 sm:h-10 sm:w-10 mr-2 sm:mr-3 object-contain rounded-lg"
               />

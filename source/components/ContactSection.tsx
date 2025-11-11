@@ -312,7 +312,7 @@ export default function ContactSection() {
                 <div className="mt-6 sm:mt-8 flex justify-center">
                   <div className="w-full max-w-full">
                     <iframe
-                      src='/source/components/3d_coin.html'
+                      src='/components/3d_coin.html'
                       frameBorder='0'
                       width='100%'
                       height='300px'

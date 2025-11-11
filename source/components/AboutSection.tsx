@@ -57,7 +57,7 @@ export default function AboutSection() {
             {/* Profile Photo */}
             <div className="w-full max-w-md lg:max-w-xl aspect-square lg:aspect-[4/3] rounded-xl overflow-hidden shadow-lg animate-fade-in lg:translate-x-0 xl:translate-x-20">
               <img
-                src="source/assets/pro2.png"
+                src="/assets/pro2.png"
                 alt="Profile"
                 className="w-1500px h-full object-cover"
               />
