@@ -32,10 +32,10 @@ export default function Navigation() {
   };
 
   const handleDownloadResume = () => {
-    const resumeUrl = '/source/assets/Resume-Internship.pdf';
+    const resumeUrl = '/assets/EddieCVGan.pdf';
     const link = document.createElement('a');
     link.href = resumeUrl;
-    link.download = 'EddieGan_Resume.pdf';
+    link.download = 'EddieCVGan.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

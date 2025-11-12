@@ -52,7 +52,7 @@ This checklist ensures your portfolio website is ready for deployment.
 ### 5. Content & Assets
 
 - [ ] **All project images** are accessible (using Unsplash URLs or local assets)
-- [ ] **Resume file** path is correct: `/source/assets/Resume-Internship.pdf`
+- [ ] **Resume file** path is correct: `/assets/EddieCVGan.pdf`
 - [ ] **Favicon** is set: `/favicon/xrypto.ico`
 - [ ] **Project status** is correctly set (in-progress/coming-soon/completed)
 
@@ -202,6 +202,7 @@ npm run preview
 
 **Last Updated**: 2025-01-XX
 **Status**: ✅ Ready for deployment (after setting environment variables)
+
 
 
 
