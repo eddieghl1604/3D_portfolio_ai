@@ -5,7 +5,8 @@
 ### 1. Projects Data Updated
 
 **All projects now have status indicators:**
-- **In Progress** (3 projects): Mortgage FinTech SOP System, Crypto Market Analysis Dashboard, Python Trading Bot
+- **Completed** (1 project): Modern Portfolio Website
+- **In Progress** (2 projects): Crypto Market Analysis Dashboard, Python Trading Bot
 - **Coming Soon** (3 projects): AI Nutrition Subscription Platform, DeFi Yield Optimizer, Web3 Portfolio Tracker
 
 **What Changed:**
@@ -167,7 +168,7 @@ Edit `source/lib/projectsData.ts`:
 
 | Project | Status | Badge Color |
 |---------|--------|-------------|
-| Mortgage FinTech SOP System | In Progress | Yellow |
+| Modern Portfolio Website | Completed | Green (No badge) |
 | Crypto Market Analysis Dashboard | In Progress | Yellow |
 | Python Trading Bot | In Progress | Yellow |
 | AI Nutrition Subscription Platform | Coming Soon | Purple |

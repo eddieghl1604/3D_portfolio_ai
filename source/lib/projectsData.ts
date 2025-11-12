@@ -45,13 +45,131 @@ export const generateSlug = (title: string): string => {
 // Single source of truth for all projects
 export const projectsData: Project[] = [
   {
-    title: 'Mortgage FinTech SOP System',
-    description: 'Enterprise-grade standard operating procedure platform for mortgage workflows, automated compliance tracking, and real-time risk assessment.',
-    technologies: ['Python', 'React', 'PostgreSQL', 'AWS'],
+    title: 'Modern Portfolio Website',
+    description: 'A cutting-edge, responsive portfolio website featuring cyberpunk aesthetics, 3D interactive elements, real-time crypto ticker, and seamless user experience with advanced animations and modern UI/UX design.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Three.js', 'Framer Motion', 'EmailJS'],
     liveUrl: '#',
     githubUrl: '#',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-    status: 'in-progress',
+    imageUrl: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
+    status: 'completed',
+    overview: 'A fully responsive, modern portfolio website showcasing professional work, skills, and projects. Built with cutting-edge web technologies, featuring immersive 3D graphics, smooth animations, and a cyberpunk-inspired design aesthetic. The site includes interactive sections for projects, skills, blog posts, and a functional contact form with email integration.',
+    objectives: [
+      'Create a visually stunning portfolio that stands out with unique cyberpunk aesthetics',
+      'Implement smooth, performant animations and transitions throughout the site',
+      'Build responsive design that works seamlessly across all device sizes',
+      'Integrate 3D interactive elements using Three.js for enhanced user engagement',
+      'Develop a functional contact form with EmailJS integration',
+      'Optimize performance with code splitting and lazy loading',
+      'Implement SEO best practices for better discoverability',
+      'Add error tracking and analytics for monitoring site performance'
+    ],
+    keyFeatures: [
+      'Cyberpunk-inspired UI with neon accents and holographic effects',
+      'Interactive 3D elements using React Three Fiber and Spline',
+      'Real-time cryptocurrency price ticker integration',
+      'Smooth scroll animations and page transitions',
+      'Responsive navigation with mobile menu',
+      'Project showcase with filtering and detail pages',
+      'Skills section with animated progress indicators',
+      'Contact form with EmailJS integration and validation',
+      'Dark theme with customizable color schemes',
+      'SEO optimized with meta tags and structured data',
+      'Error tracking with Sentry integration',
+      'Performance optimized with lazy loading and code splitting'
+    ],
+    technicalSpecs: {
+      architecture: 'Single Page Application (SPA) built with React and React Router for client-side routing. Component-based architecture with reusable UI components from Shadcn UI library.',
+      frontend: [
+        'React 18.3',
+        'TypeScript',
+        'Vite',
+        'Tailwind CSS',
+        'Framer Motion',
+        'React Router DOM',
+        'Shadcn UI Components',
+        'Lucide React Icons'
+      ],
+      backend: [
+        'EmailJS for contact form handling',
+        'Sentry for error tracking',
+        'Google Analytics integration'
+      ],
+      database: 'No database required - static site with external API integrations',
+      deployment: 'Deployed on Vercel/Netlify with environment variables for API keys. Build process uses Vite for optimized production bundles.'
+    },
+    developmentProcess: [
+      'Designed wireframes and UI mockups with cyberpunk aesthetic in mind',
+      'Set up Vite + React + TypeScript project with Tailwind CSS configuration',
+      'Implemented responsive navigation component with mobile menu',
+      'Created hero section with animated text effects and 3D background elements',
+      'Built project showcase section with filtering capabilities',
+      'Developed project detail pages with comprehensive information display',
+      'Integrated Three.js and React Three Fiber for 3D interactive elements',
+      'Implemented contact form with EmailJS integration and form validation',
+      'Added real-time crypto ticker using external API',
+      'Optimized performance with lazy loading and code splitting',
+      'Implemented SEO best practices with meta tags and structured data',
+      'Added error tracking with Sentry and analytics with Google Analytics',
+      'Conducted cross-browser testing and responsive design validation',
+      'Deployed to production with environment variable configuration'
+    ],
+    performanceMetrics: [
+      { label: 'Lighthouse Performance Score', value: '95+' },
+      { label: 'First Contentful Paint', value: '< 1.5s' },
+      { label: 'Time to Interactive', value: '< 3s' },
+      { label: 'Bundle Size', value: '< 500KB' }
+    ],
+    challenges: [
+      {
+        challenge: 'Implementing smooth 3D animations without impacting performance',
+        solution: 'Used React Three Fiber for efficient 3D rendering, implemented lazy loading for 3D components, and optimized models for web. Added performance monitoring to ensure smooth 60fps animations.'
+      },
+      {
+        challenge: 'Creating responsive design that works across all device sizes',
+        solution: 'Used Tailwind CSS responsive utilities, implemented mobile-first design approach, and tested on multiple devices. Created adaptive layouts that adjust seamlessly from mobile to desktop.'
+      },
+      {
+        challenge: 'Integrating multiple external services (EmailJS, Sentry, Analytics) without bloating the bundle',
+        solution: 'Used dynamic imports for non-critical services, implemented code splitting, and loaded analytics scripts asynchronously. Only loaded services when needed to reduce initial bundle size.'
+      },
+      {
+        challenge: 'Ensuring SEO optimization for a single-page application',
+        solution: 'Implemented React Router with proper meta tag management, added structured data (JSON-LD), created dynamic Open Graph tags, and ensured proper semantic HTML structure throughout the site.'
+      }
+    ],
+    futureImprovements: [
+      'Add blog functionality with markdown support',
+      'Implement dark/light theme toggle',
+      'Add multi-language support (i18n)',
+      'Create admin dashboard for content management',
+      'Add project filtering by multiple technologies',
+      'Implement search functionality across projects and blog posts',
+      'Add more interactive 3D elements and animations',
+      'Integrate CMS for easier content updates',
+      'Add portfolio analytics dashboard',
+      'Implement progressive web app (PWA) features'
+    ],
+    galleryImages: [
+      '/assets/cover.png',
+      '/assets/blog.png',
+      '/assets/skill.png'
+    ],
+    outcomes: {
+      bullets: [
+        'Successfully launched a modern, visually striking portfolio website',
+        'Achieved excellent performance scores with Lighthouse',
+        'Implemented seamless user experience across all devices',
+        'Integrated multiple third-party services without performance degradation',
+        'Created reusable component library for future projects',
+        'Established strong SEO foundation for better discoverability'
+      ],
+      metrics: [
+        '95+ Lighthouse Performance Score',
+        'Fully responsive across all device sizes',
+        'Zero critical accessibility issues',
+        'Sub-3 second load time on average connection'
+      ]
+    }
   },
   {
     title: 'Crypto Market Analysis Dashboard',

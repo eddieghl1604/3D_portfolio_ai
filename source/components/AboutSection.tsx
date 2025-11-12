@@ -86,7 +86,7 @@ export default function AboutSection() {
           <div className="flex-1 flex flex-col justify-center animate-fade-in text-center lg:text-left w-full">
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8">
               A quantitative trader turned blockchain architect, merging Wall Street rigor with
-              cyberpunk innovation. From mortgage FinTech systems to DeFi protocols, Python trading
+              cyberpunk innovation. From modern portfolio websites to DeFi protocols, Python trading
               bots to AI nutrition platforms—building the financial infrastructure of tomorrow.
             </p>
 
