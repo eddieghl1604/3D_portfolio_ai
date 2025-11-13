@@ -34,7 +34,7 @@ export default function HeroSection() {
           <div className="space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1 -mt-4 sm:-mt-0">
             <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 border border-primary/30 rounded-full">
               <span className="text-primary text-xs sm:text-sm font-semibold uppercase tracking-wider">
-                Blockchain Developer & 3D Specialist
+                Blockchain Enthusiasts & 3D Developer
               </span>
             </div>
 
