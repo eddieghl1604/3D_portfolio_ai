@@ -319,6 +319,7 @@ export default function ContactSection() {
                       title="3D Model"
                       className="rounded-xl shadow-xl h-[400px] sm:h-[450px] md:h-[500px]"
                       style={{ minHeight: '400px' }}
+                      loading="lazy"
                     />
                   </div>
                 </div>

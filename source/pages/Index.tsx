@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
@@ -9,10 +9,12 @@ import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import LoadingScreen from '@/components/LoadingScreen';
-import ParticleField from '@/components/ParticleField';
 import CryptoTicker from '@/components/CryptoTicker';
 import SEO from '@/components/SEO';
 import BackToTop from '@/components/BackToTop';
+
+// Lazy load heavy components to reduce initial bundle size
+const ParticleField = lazy(() => import('@/components/ParticleField'));
 
 const Index = () => {
   const location = useLocation();
@@ -53,7 +55,10 @@ const Index = () => {
   return (
     <div className="relative">
       <SEO />
-      <ParticleField />
+      {/* Lazy load ParticleField after initial render */}
+      <Suspense fallback={null}>
+        <ParticleField />
+      </Suspense>
       <CryptoTicker />
       <Navigation />
       <HeroSection />

@@ -1,8 +1,11 @@
+import { lazy, Suspense } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import Scene3D from './Scene3D';
 import ScrollingText from './ScrollingText';
 import heroBg from '@/assets/hero-bg.jpg';
+
+// Lazy load heavy 3D component
+const Scene3D = lazy(() => import('./Scene3D'));
 
 export default function HeroSection() {
   return (
@@ -19,9 +22,11 @@ export default function HeroSection() {
       />
 
 
-      {/* 3D Scene */}
+      {/* 3D Scene - Lazy loaded for performance */}
       <div className="absolute inset-0 z-10 opacity-60">
-        <Scene3D />
+        <Suspense fallback={null}>
+          <Scene3D />
+        </Suspense>
       </div>
 
       {/* Gradient Overlay */}
@@ -95,6 +100,7 @@ export default function HeroSection() {
               title="3D Model"
               className="rounded-lg lg:rounded-none"
               style={{ minHeight: '400px' }}
+              loading="lazy"
             />
           </div>
         </div>
