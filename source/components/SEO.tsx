@@ -7,10 +7,10 @@ interface SEOProps {
   url?: string;
 }
 
-export default function SEO({ 
+export default function SEO({
   title = 'Eddie Gan - Blockchain Developer & 3D Specialist',
   description = 'Innovative blockchain solutions and 3D web experiences. Specializing in cryptocurrency platforms, DeFi, smart contracts, and immersive digital experiences.',
-  image = '/assets/og_image.svg',
+  image = '/assets/cover.png',
   url = 'https://yourportfolio.com'
 }: SEOProps) {
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function SEO({
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Eddie Gan',
-    jobTitle: 'Blockchain Developer & 3D Specialist',
+    jobTitle: 'Blockchain Enthusiast & 3D Developer',
     url: url,
     sameAs: [
       'https://github.com/eddieghl1604',
