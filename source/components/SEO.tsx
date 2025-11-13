@@ -10,7 +10,7 @@ interface SEOProps {
 export default function SEO({ 
   title = 'Eddie Gan - Blockchain Developer & 3D Specialist',
   description = 'Innovative blockchain solutions and 3D web experiences. Specializing in cryptocurrency platforms, DeFi, smart contracts, and immersive digital experiences.',
-  image = '/og-image.png',
+  image = '/assets/og_image.svg',
   url = 'https://yourportfolio.com'
 }: SEOProps) {
   useEffect(() => {
