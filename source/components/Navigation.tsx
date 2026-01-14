@@ -77,7 +77,7 @@ export default function Navigation() {
               })}
 
               <Button
-                variant="default"
+                  variant="default"
                 size="sm"
                 onClick={handleDownloadResume}
                 className="ml-2 text-xs lg:text-sm"
