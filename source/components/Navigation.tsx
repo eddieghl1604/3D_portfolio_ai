@@ -32,7 +32,7 @@ export default function Navigation() {
   };
 
   const handleDownloadResume = () => {
-    const resumeUrl = '/assets/EddieCVGan.pdf';
+    const resumeUrl = '/assets/Eddie-web3-resume.pdf';
     const link = document.createElement('a');
     link.href = resumeUrl;
     link.download = 'EddieCVGan.pdf';
