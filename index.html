@@ -39,6 +39,17 @@
   </head>
 
   <body>
+    <!-- Apply saved portfolio mode (web2/web3) before paint to avoid theme flash -->
+    <script>
+      (function () {
+        try {
+          var m = localStorage.getItem('portfolio-mode');
+          document.documentElement.setAttribute('data-mode', m === 'web2' ? 'web2' : 'web3');
+        } catch (e) {
+          document.documentElement.setAttribute('data-mode', 'web3');
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/source/server/main.tsx"></script>
     <!-- Fallback for async font loading -->

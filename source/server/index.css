@@ -71,6 +71,60 @@ All colors MUST be HSL.
     --sidebar-border: 222 47% 15%;
     --sidebar-ring: 187 100% 50%;
   }
+
+  /* ============================================================
+     WEB2 MODE — clean, professional engineering theme.
+     Overrides the cyberpunk neon palette with a refined
+     slate + professional-blue scheme. Same dark layout, but
+     calmer accents and no glitch effects.
+     ============================================================ */
+  [data-mode='web2'] {
+    --background: 222 28% 9%;
+    --foreground: 210 20% 92%;
+
+    --card: 222 24% 12%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 222 24% 12%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 28% 9%;
+
+    --secondary: 239 84% 67%;
+    --secondary-foreground: 210 20% 92%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 222 28% 9%;
+
+    --muted: 222 20% 18%;
+    --muted-foreground: 215 16% 65%;
+
+    --border: 222 18% 22%;
+    --input: 222 18% 22%;
+    --ring: 217 91% 60%;
+
+    /* Professional blue gradient set (reuses existing class names) */
+    --gradient-cyber: linear-gradient(135deg, hsl(217 91% 60%), hsl(239 84% 67%));
+    --gradient-gold: linear-gradient(135deg, hsl(199 89% 48%), hsl(217 91% 65%));
+    --gradient-dark: linear-gradient(180deg, hsl(222 28% 9%), hsl(222 24% 12%));
+    --gradient-neon: linear-gradient(135deg, hsl(199 89% 48%), hsl(217 91% 60%), hsl(239 84% 67%));
+    --gradient-hologram: linear-gradient(180deg, hsl(217 91% 60% / 0.06), hsl(239 84% 67% / 0.06));
+
+    /* Subtle, soft shadows instead of strong neon glow */
+    --glow-cyan: 0 8px 24px hsl(217 91% 60% / 0.15);
+    --glow-purple: 0 8px 24px hsl(239 84% 67% / 0.15);
+    --glow-gold: 0 8px 24px hsl(199 89% 48% / 0.15);
+    --glow-pink: 0 8px 24px hsl(217 91% 60% / 0.15);
+    --glow-green: 0 8px 24px hsl(199 89% 48% / 0.15);
+
+    --sidebar-background: 222 24% 12%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 222 28% 9%;
+    --sidebar-accent: 222 20% 16%;
+    --sidebar-border: 222 18% 22%;
+    --sidebar-ring: 217 91% 60%;
+  }
 }
 
 @layer base {
@@ -329,5 +383,19 @@ All colors MUST be HSL.
     50% {
       transform: translateY(100%);
     }
+  }
+
+  /* Web2 professional theme: drop the cyberpunk glitch/scan FX */
+  [data-mode='web2'] .glitch {
+    animation: none;
+  }
+
+  [data-mode='web2'] .glitch::before,
+  [data-mode='web2'] .glitch::after {
+    display: none;
+  }
+
+  [data-mode='web2'] .matrix-effect::after {
+    display: none;
   }
 }

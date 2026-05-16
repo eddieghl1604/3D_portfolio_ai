@@ -1,11 +1,20 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import ProjectCard from './ProjectCard';
 import { Button } from '@/components/ui/button';
-import { projectsData } from '@/lib/projectsData';
+import { getProjectsByMode } from '@/lib/projectsData';
+import { useMode } from '@/context/ModeContext';
+import { getModeContent } from '@/lib/siteContent';
 
 export default function ProjectsSection() {
+  const { mode } = useMode();
+  const { projectsSubtitle } = getModeContent(mode);
   const [selectedTech, setSelectedTech] = useState('All');
-  const projects = projectsData;
+  const projects = useMemo(() => getProjectsByMode(mode), [mode]);
+
+  // Reset technology filter when switching portfolio mode
+  useEffect(() => {
+    setSelectedTech('All');
+  }, [mode]);
 
   // Get all unique technologies
   const allTechnologies = useMemo(() => {
@@ -14,7 +23,7 @@ export default function ProjectsSection() {
       project.technologies.forEach((tech) => techSet.add(tech));
     });
     return ['All', ...Array.from(techSet).sort()];
-  }, []);
+  }, [projects]);
 
   // Filter projects based on selected technology
   const filteredProjects = useMemo(() => {
@@ -24,7 +33,7 @@ export default function ProjectsSection() {
         (tech) => tech.toLowerCase() === selectedTech.toLowerCase()
       )
     );
-  }, [selectedTech]);
+  }, [selectedTech, projects]);
 
   const handleFilterChange = (tech: string) => {
     setSelectedTech(tech);
@@ -39,7 +48,7 @@ export default function ProjectsSection() {
             <span className="text-gradient-gold">Projects</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Innovative blockchain solutions and immersive digital experiences
+            {projectsSubtitle}
           </p>
         </div>
 

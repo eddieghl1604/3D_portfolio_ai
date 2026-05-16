@@ -32,6 +32,8 @@ export interface Project {
   relatedProjects?: string[];
   // Status field
   status?: 'completed' | 'in-progress' | 'coming-soon';
+  // Which portfolio mode this project belongs to
+  category?: 'web2' | 'web3' | 'both';
 }
 
 // Generate slug from title
@@ -52,6 +54,7 @@ export const projectsData: Project[] = [
     githubUrl: '#',
     imageUrl: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
     status: 'completed',
+    category: 'both',
     overview: 'A fully responsive, modern portfolio website showcasing professional work, skills, and projects. Built with cutting-edge web technologies, featuring immersive 3D graphics, smooth animations, and a cyberpunk-inspired design aesthetic. The site includes interactive sections for projects, skills, blog posts, and a functional contact form with email integration.',
     objectives: [
       'Create a visually stunning portfolio that stands out with unique cyberpunk aesthetics',
@@ -179,6 +182,7 @@ export const projectsData: Project[] = [
     githubUrl: '#',
     imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop',
     status: 'in-progress',
+    category: 'web3',
   },
   {
     title: 'Python Trading Bot',
@@ -188,6 +192,7 @@ export const projectsData: Project[] = [
     githubUrl: '#',
     imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop',
     status: 'in-progress',
+    category: 'both',
   },
   {
     title: 'AI Nutrition Subscription Platform',
@@ -197,6 +202,7 @@ export const projectsData: Project[] = [
     githubUrl: '#',
     imageUrl: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=600&fit=crop',
     status: 'coming-soon',
+    category: 'web2',
   },
   {
     title: 'DeFi Yield Optimizer',
@@ -206,6 +212,7 @@ export const projectsData: Project[] = [
     githubUrl: '#',
     imageUrl: 'https://plus.unsplash.com/premium_photo-1733342554594-102b8e2d0623?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1431',
     status: 'coming-soon',
+    category: 'web3',
   },
   {
     title: 'Web3 Portfolio Tracker',
@@ -215,6 +222,7 @@ export const projectsData: Project[] = [
     githubUrl: '#',
     imageUrl: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&h=600&fit=crop',
     status: 'coming-soon',
+    category: 'web3',
   },
 ];
 
@@ -226,6 +234,13 @@ export const getProjectBySlug = (slug: string): Project | undefined => {
 // Get all project slugs for routing
 export const getAllProjectSlugs = (): string[] => {
   return projectsData.map((project) => generateSlug(project.title));
+};
+
+// Filter projects for the active portfolio mode (web2 / web3)
+export const getProjectsByMode = (mode: 'web2' | 'web3'): Project[] => {
+  return projectsData.filter(
+    (project) => !project.category || project.category === 'both' || project.category === mode
+  );
 };
 
 

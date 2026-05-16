@@ -3,11 +3,17 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import ScrollingText from './ScrollingText';
 import heroBg from '@/assets/hero-bg.jpg';
+import { useMode } from '@/context/ModeContext';
+import { getModeContent } from '@/lib/siteContent';
+import SafeBoundary from './SafeBoundary';
 
 // Lazy load heavy 3D component
 const Scene3D = lazy(() => import('./Scene3D'));
 
 export default function HeroSection() {
+  const { mode } = useMode();
+  const { hero, scrollingText } = getModeContent(mode);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -24,9 +30,11 @@ export default function HeroSection() {
 
       {/* 3D Scene - Lazy loaded for performance */}
       <div className="absolute inset-0 z-10 opacity-60">
-        <Suspense fallback={null}>
-          <Scene3D />
-        </Suspense>
+        <SafeBoundary>
+          <Suspense fallback={null}>
+            <Scene3D />
+          </Suspense>
+        </SafeBoundary>
       </div>
 
       {/* Gradient Overlay */}
@@ -39,25 +47,25 @@ export default function HeroSection() {
           <div className="space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1 -mt-4 sm:-mt-0">
             <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 border border-primary/30 rounded-full">
               <span className="text-primary text-xs sm:text-sm font-semibold uppercase tracking-wider">
-                Blockchain Enthusiasts & 3D Developer
+                {hero.badge}
               </span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold leading-tight">
-              <span className="text-gradient-neon glow-cyan">FinTech Innovator</span>
-              <br />
-              <span className="text-gradient-cyber glow-purple">Crypto Visionary</span>
-              <br />
-              <span className="text-gradient-gold glow-gold">Cyber-Era Builder</span>
+              {hero.titleLines.map((line, i) => (
+                <span key={line.text}>
+                  <span className={line.className}>{line.text}</span>
+                  {i < hero.titleLines.length - 1 && <br />}
+                </span>
+              ))}
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto lg:mx-0 lg:max-w-none">
-              Bridging traditional finance with decentralized future. Building next-gen trading systems,
-              DeFi protocols, and immersive Web3 experiences at the intersection of Wall Street × Cyberpunk.
+              {hero.description}
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-6 sm:mb-8">
-              {['₿TC', 'ETH', 'SOL'].map((symbol) => (
+              {hero.tags.map((symbol) => (
                 <div
                   key={symbol}
                   className="hologram-panel px-4 sm:px-6 py-2 sm:py-3 rounded-lg animate-float"
@@ -107,7 +115,7 @@ export default function HeroSection() {
       </div>
                {/* Scrolling Text */}
       <div className="absolute bottom-0 left-0 right-0 z-30 bg-black">
-        <ScrollingText text="BLOCKCHAIN • DEFI • NFT • WEB3 • SMART CONTRACTS • CRYPTOCURRENCY • METAVERSE • BLOCKCHAIN • DEFI • NFT • WEB3" />
+        <ScrollingText text={scrollingText} />
       </div>
     </section>
   );

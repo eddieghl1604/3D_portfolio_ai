@@ -12,12 +12,14 @@ import LoadingScreen from '@/components/LoadingScreen';
 import CryptoTicker from '@/components/CryptoTicker';
 import SEO from '@/components/SEO';
 import BackToTop from '@/components/BackToTop';
+import { useMode } from '@/context/ModeContext';
 
 // Lazy load heavy components to reduce initial bundle size
 const ParticleField = lazy(() => import('@/components/ParticleField'));
 
 const Index = () => {
   const location = useLocation();
+  const { mode } = useMode();
   // Skip loading screen if navigating from another route (internal navigation)
   const skipLoading = location.state?.skipLoading === true;
   const [loading, setLoading] = useState(!skipLoading);
@@ -59,7 +61,7 @@ const Index = () => {
       <Suspense fallback={null}>
         <ParticleField />
       </Suspense>
-      <CryptoTicker />
+      {mode === 'web3' && <CryptoTicker />}
       <Navigation />
       <HeroSection />
       <AboutSection />

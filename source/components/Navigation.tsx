@@ -3,12 +3,17 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useActiveSection } from '@/hooks/useActiveSection';
+import { useMode } from '@/context/ModeContext';
+import { getModeContent } from '@/lib/siteContent';
+import ModeToggle from './ModeToggle';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const activeSection = useActiveSection();
   const navigate = useNavigate();
   const location = useLocation();
+  const { mode } = useMode();
+  const content = getModeContent(mode);
 
   const navItems = [
     { label: 'Home', href: '#home', id: 'home' },
@@ -32,10 +37,10 @@ export default function Navigation() {
   };
 
   const handleDownloadResume = () => {
-    const resumeUrl = '/assets/Eddie-resume- web3.pdf';
+    const resumeUrl = content.resumeFile;
     const link = document.createElement('a');
     link.href = resumeUrl;
-    link.download = 'EddieCVGan.pdf';
+    link.download = content.resumeDownloadName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -76,6 +81,8 @@ export default function Navigation() {
                 );
               })}
 
+              <ModeToggle className="ml-2" />
+
               <Button
                   variant="default"
                 size="sm"
@@ -87,14 +94,16 @@ export default function Navigation() {
               </Button>
             </div>
 
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
-            </Button>
+            <div className="flex items-center gap-2 md:hidden">
+              <ModeToggle />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
+              </Button>
+            </div>
           </div>
         </div>
       </nav>

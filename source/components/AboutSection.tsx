@@ -1,44 +1,12 @@
-import { Code2, Blocks, Wallet, Rocket } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useMode } from '@/context/ModeContext';
+import { getModeContent } from '@/lib/siteContent';
 
 export default function AboutSection() {
-  const skills = [
-    {
-      icon: Code2,
-      title: 'Smart Contracts',
-      description: 'Expert in Solidity and secure smart contract development',
-    },
-    {
-      icon: Blocks,
-      title: 'Blockchain Architecture',
-      description: 'Designing scalable and efficient blockchain solutions',
-    },
-    {
-      icon: Wallet,
-      title: 'DeFi & Web3',
-      description: 'Building decentralized finance applications and Web3 integrations',
-    },
-    {
-      icon: Rocket,
-      title: '3D Experiences',
-      description: 'Creating immersive 3D web experiences with Three.js',
-    },
-  ];
-
-  const technologies = [
-    'Solidity',
-    'Ethereum',
-    'Web3.js',
-    'Hardhat',
-    'React',
-    'Three.js',
-    'TypeScript',
-    'Node.js',
-    'IPFS',
-    'Smart Contracts',
-    'DeFi',
-    'NFTs',
-  ];
+  const { mode } = useMode();
+  const { about } = getModeContent(mode);
+  const skills = about.skillCards;
+  const technologies = about.technologies;
 
   return (
     <section id="about" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
@@ -85,9 +53,7 @@ export default function AboutSection() {
           {/* RIGHT COLUMN — Text + Skills */}
           <div className="flex-1 flex flex-col justify-center animate-fade-in text-center lg:text-left w-full">
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8">
-              A quantitative trader turned blockchain architect, merging Wall Street rigor with
-              cyberpunk innovation. From modern portfolio websites to DeFi protocols, Python trading
-              bots to AI nutrition platforms—building the financial infrastructure of tomorrow.
+              {about.paragraph}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">

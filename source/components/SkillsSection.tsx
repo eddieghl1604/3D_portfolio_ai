@@ -1,42 +1,10 @@
 import { motion } from 'framer-motion';
-import { TrendingUp, Code, Bitcoin } from 'lucide-react';
+import { useMode } from '@/context/ModeContext';
+import { getModeContent } from '@/lib/siteContent';
 
 export default function SkillsSection() {
-  const skillCategories = [
-    {
-      title: 'Finance & Trading',
-      icon: TrendingUp,
-      color: 'text-gradient-gold',
-      skills: [
-        { name: 'Quantitative Analysis', level: 95 },
-        { name: 'Risk Management', level: 90 },
-        { name: 'Market Microstructure', level: 85 },
-        { name: 'Portfolio Optimization', level: 88 },
-      ],
-    },
-    {
-      title: 'Technology',
-      icon: Code,
-      color: 'text-gradient-cyber',
-      skills: [
-        { name: 'Python / TypeScript', level: 92 },
-        { name: 'React / Next.js', level: 88 },
-        { name: 'Three.js / WebGL', level: 85 },
-        { name: 'Node.js / APIs', level: 90 },
-      ],
-    },
-    {
-      title: 'Blockchain',
-      icon: Bitcoin,
-      color: 'text-gradient-neon',
-      skills: [
-        { name: 'Smart Contracts', level: 87 },
-        { name: 'DeFi Protocols', level: 90 },
-        { name: 'Web3 Integration', level: 92 },
-        { name: 'Tokenomics', level: 85 },
-      ],
-    },
-  ];
+  const { mode } = useMode();
+  const { skillCategories, skillsSubtitle } = getModeContent(mode);
 
   return (
     <section id="skills" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
@@ -47,7 +15,7 @@ export default function SkillsSection() {
             <span className="text-gradient-gold">HUD</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Multi-Dimensional Expertise Matrix
+            {skillsSubtitle}
           </p>
         </div>
 
